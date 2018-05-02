@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Test</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <script type="text/javascript" src="js/d3/d3.min.js"></script>
+</head>
+
+<body>
+  <p>This is the basis of our visual essay page.</p>
+  <div class="123">1</div>
+  <div class="123">2</div>
+  <div class="123">3</div>
+  <div class="123">4</div>
+
+  <script>
+  d3.selectAll("div").style("color", function() {
+    return "hsl(" + Math.random() * 360 + ",100%,50%)";
+  });
+
+  d3.select("body")
+  .selectAll("p")
+  .data([4, 8, 15, 16, 23, 42])
+  .enter().append("p")
+  .text(function(d) { return "I'’'m number " + d + "!"; });
+  </script>
+</body>
+</html>
