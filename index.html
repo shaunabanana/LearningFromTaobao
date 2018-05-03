@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <title>Test</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-
-  <script type="text/javascript" src="js/d3/d3.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
-  <p>This is the basis of our visual essay page.</p>
-  <div class="123">1</div>
-  <div class="123">2</div>
-  <div class="123">3</div>
-  <div class="123">4</div>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/graph.js"></script>
 
-  <script>
-  d3.selectAll("div").style("color", function() {
-    return "hsl(" + Math.random() * 360 + ",100%,50%)";
-  });
+    <button>Add some stuff!</button>
 
-  d3.select("body")
-  .selectAll("p")
-  .data([4, 8, 15, 16, 23, 42])
-  .enter().append("p")
-  .text(function(d) { return "I'’'m number " + d + "!"; });
-  </script>
+    <div id="tooltip">
+        qwr
+    </div>
+
+
+    <script>
+
+    d3.select("button").on("click", function () {
+        entries.push({
+            name: "asdfasdf",
+            cluster: 0,
+            level: 2,
+            x: clusters[0].x,
+            y: clusters[0].y,
+            radius: 10
+        })
+        entry = entry.data(entries)
+        entry.exit().remove();
+        entry.enter().append("circle")
+            .style("fill", function(d) { return color(d.cluster); })
+            .attr("r", function(d) { return d.radius; })
+            .call(force.drag)
+            .append("title")
+                .text(function(d) { return d.name; });
+
+        entry = svg.selectAll("circle")
+        force.nodes(entries);
+        force.start();
+    });
+
+    </script>
+-->
 </body>
 </html>
