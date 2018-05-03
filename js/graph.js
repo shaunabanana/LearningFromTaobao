@@ -1,8 +1,3 @@
-var width = window.innerWidth,
-    height = window.innerHeight,
-    padding = 3, // separation between same-color nodes
-    clusterPadding = 25, // separation between different-color nodes
-    maxRadius = 12;
 function StartGraph() {
     var width = window.innerWidth,
         height = window.innerHeight,
