@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <title>淘宝黑话 Taobao slangs</title>
 </head>
 <body>
     <script src="//d3js.org/d3.v3.min.js"></script>
@@ -12,37 +13,12 @@
 
     <button>Add some stuff!</button>
 
-    <div id="tooltip">
-        qwr
-    </div>
+    <div id="tooltip"></div>
 
 
     <script>
 
-    d3.select("button").on("click", function () {
-        entries.push({
-            name: "asdfasdf",
-            cluster: 0,
-            level: 2,
-            x: clusters[0].x,
-            y: clusters[0].y,
-            radius: 10
-        })
-        entry = entry.data(entries)
-        entry.exit().remove();
-        entry.enter().append("circle")
-            .style("fill", function(d) { return color(d.cluster); })
-            .attr("r", function(d) { return d.radius; })
-            .call(force.drag)
-            .append("title")
-                .text(function(d) { return d.name; });
-
-        entry = svg.selectAll("circle")
-        force.nodes(entries);
-        force.start();
-    });
-
     </script>
--->
+
 </body>
 </html>
