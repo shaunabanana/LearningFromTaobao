@@ -40,7 +40,7 @@ d3.json("data/data.json", function (error, data) {
     entry = svg.selectAll("circle")
         .data(entries)
         .enter().append("circle")
-        .style("fill", function(d) { return color(d.cluster); })
+        .style("fill", function(d) { c = d3.hsl(color(d.cluster)); c.h += d.delta * 10; return c.toString(); })
         .attr("class", function(d) { return "cluster" + d.cluster; })
         .attr("id", function(d) { return "entry" + d.index; })
         .on("mouseover", function (d) {
