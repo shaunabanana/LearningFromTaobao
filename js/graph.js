@@ -153,8 +153,6 @@ function StartGraph() {
         }
     });
 
-
-<<<<<<< HEAD
     entries = data.entries;
     entries.forEach(function (e) {
         e.x = Math.cos(e.cluster / nClusters * 2 * Math.PI) * 200 + width / 2 + Math.random();
@@ -204,7 +202,7 @@ function StartGraph() {
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 60) + "px")
                 .text(d.name);
-=======
+
     d3.select("button").on("click", function () {
         entries.push({
             name: "asdfasdf",
@@ -213,7 +211,6 @@ function StartGraph() {
             x: clusters[0].x,
             y: clusters[0].y,
             radius: 10
->>>>>>> 78461f43045abc35082d5a42e911c686365b6551
         })
         entry = entry.data(entries)
         entry.exit().remove();
