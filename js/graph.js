@@ -153,6 +153,55 @@ StartGraph = function () {
         }
     });
 
+    entries = data.entries;
+    entries.forEach(function (e) {
+        e.x = Math.cos(e.cluster / nClusters * 2 * Math.PI) * 200 + width / 2 + Math.random();
+        e.y = Math.sin(e.cluster / nClusters * 2 * Math.PI) * 200 + height / 2 + Math.random();
+        e.radius = Math.pow(1.4, -e.level) * 20;
+        if (e.level == 0) {
+            clusters[e.cluster] = e
+        }
+    })
+    console.log(entries);
+
+    force = d3.layout.force()
+        .nodes(entries)
+        .size([width, height])
+        .gravity(.05)
+        .charge(-20)
+        .on("tick", tick)
+        .start();
+
+    svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    entry = svg.selectAll("circle")
+        .data(entries)
+        .enter().append("circle")
+        .style("fill", function(d) { c = d3.hsl(color(d.cluster)); c.h += d.delta * 10; return c.toString(); })
+        .attr("class", function(d) { return "cluster" + d.cluster; })
+        .attr("id", function(d) { return "entry" + d.index; })
+        .on("mouseover", function (d) {
+            d3.selectAll("circle").transition()
+                .duration(200)
+                .style("opacity", 0.4);
+
+            d3.selectAll(".cluster" + d.cluster).transition()
+                .duration(200)
+                .style("opacity", 0.7);
+
+            d3.select("#entry" + d.index).transition()
+                .duration(200)
+                .style("opacity", 1)
+
+            d3.select("#tooltip").transition()
+                .duration(200)
+                .style("opacity", 1)
+                .duration(100)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 60) + "px")
+                .text(d.name);
 
     d3.select("button").on("click", function () {
         entries.push({
