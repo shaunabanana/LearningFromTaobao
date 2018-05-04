@@ -1,5 +1,6 @@
 body{
   font-size: 14pt;
+  font-family: SourceHanSans;
 }
 
 #tooltip {
@@ -20,18 +21,76 @@ body{
     vertical-align: middle;
 }
 
-.section-title {
+.section-title-1 {
     display: block;
-    font-size: 28pt;
+    position: relative;
+    top: 0.5em;
+    font-size: 4em;
+    clip-path: inset(0px 0px 0.6em 0px);
+    font-weight: 600;
 }
 
-.text-content {
+.section-title-2 {
+    display: block;
     position: relative;
-    left: 3em;
+    top: -0.6em;
+    font-size: 4em;
+    clip-path: inset(0.7em 0px 0px 0px);
+    font-weight: 600;
+}
+
+.content {
+    position: absolute;
     width: 50em;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-content-0 {
+    width: 50em;
+    font-size: 1em;
+    text-align: left;
+}
+
+.upside-down-0 {
+    position: absolute;
+    font-size: 1em;
+    width: 50em;
+    transform: rotate(180deg) translate(0px, -0.09em);
+    -webkit-transform: rotate(180deg) translate(0px, -0.09em);
+    -moz-transform: rotate(180deg) translate(0px, -0.09em);
+    -ms-transform: rotate(180deg) translate(0px, -0.09em);
+    -o-transform: rotate(180deg) translate(0px, -0.09em);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    text-align: left;
+}
+
+.text-content-1 {
+    width: 50em;
+    font-size: 1em;
+    text-align: left;
+}
+
+.upside-down-1 {
+    position: absolute;
+    font-size: 1em;
+    width: 50em;
+    transform: rotate(180deg) translate(0px, -0.09em);
+    -webkit-transform: rotate(180deg) translate(0px, -0.09em);
+    -moz-transform: rotate(180deg) translate(0px, -0.09em);
+    -ms-transform: rotate(180deg) translate(0px, -0.09em);
+    -o-transform: rotate(180deg) translate(0px, -0.09em);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    text-align: left;
+}
+
+#sepline {
+    position: absolute;
+    width: 0.3em;
+    height: 100%;
+    right: 28%;
+    top: 0px;
+    background: black;
 }

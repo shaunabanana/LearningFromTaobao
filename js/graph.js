@@ -1,4 +1,4 @@
-StartGraph = function () {
+function StartGraph () {
     var width = window.innerWidth,
         height = window.innerHeight,
         padding = 3, // separation between same-color nodes
@@ -34,7 +34,7 @@ StartGraph = function () {
             .on("tick", tick)
             .start();
 
-        svg = d3.select("#section10").append("svg")
+        svg = d3.select("#svgcanvas")
             .attr("width", width)
             .attr("height", height);
 
@@ -82,20 +82,6 @@ StartGraph = function () {
                 var i = d3.interpolate(0, d.radius);
                 return function(t) { return d.radius = i(t); };
             });
-
-        function updateWindow(){
-            var w = window,
-            d = document,
-            e = d.documentElement,
-            g = d.getElementsByTagName('body')[0],
-            x = w.innerWidth || e.clientWidth || g.clientWidth,
-            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-            svg.attr("width", x).attr("height", y);
-            force.size([x, y]);
-            force.start();
-        }
-        d3.select(window).on('resize.updatesvg', updateWindow);
 
         function tick(e) {
             entry
@@ -153,55 +139,6 @@ StartGraph = function () {
         }
     });
 
-    entries = data.entries;
-    entries.forEach(function (e) {
-        e.x = Math.cos(e.cluster / nClusters * 2 * Math.PI) * 200 + width / 2 + Math.random();
-        e.y = Math.sin(e.cluster / nClusters * 2 * Math.PI) * 200 + height / 2 + Math.random();
-        e.radius = Math.pow(1.4, -e.level) * 20;
-        if (e.level == 0) {
-            clusters[e.cluster] = e
-        }
-    })
-    console.log(entries);
-
-    force = d3.layout.force()
-        .nodes(entries)
-        .size([width, height])
-        .gravity(.05)
-        .charge(-20)
-        .on("tick", tick)
-        .start();
-
-    svg = d3.select("body").append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    entry = svg.selectAll("circle")
-        .data(entries)
-        .enter().append("circle")
-        .style("fill", function(d) { c = d3.hsl(color(d.cluster)); c.h += d.delta * 10; return c.toString(); })
-        .attr("class", function(d) { return "cluster" + d.cluster; })
-        .attr("id", function(d) { return "entry" + d.index; })
-        .on("mouseover", function (d) {
-            d3.selectAll("circle").transition()
-                .duration(200)
-                .style("opacity", 0.4);
-
-            d3.selectAll(".cluster" + d.cluster).transition()
-                .duration(200)
-                .style("opacity", 0.7);
-
-            d3.select("#entry" + d.index).transition()
-                .duration(200)
-                .style("opacity", 1)
-
-            d3.select("#tooltip").transition()
-                .duration(200)
-                .style("opacity", 1)
-                .duration(100)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 60) + "px")
-                .text(d.name);
 
     d3.select("button").on("click", function () {
         entries.push({
@@ -225,4 +162,4 @@ StartGraph = function () {
         force.nodes(entries);
         force.start();
     });
-}
+};

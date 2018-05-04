@@ -1,0 +1,77 @@
+body{
+  font-size: 14pt;
+  font-family: SourceHanSans;
+}
+
+#tooltip {
+    opacity: 0;
+    left: 0px;
+    top: 0px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1em;
+    background: white;
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+    border: 0.1em solid #444;
+    border-radius: 0.2em;
+    vertical-align: middle;
+}
+
+.section-title-1 {
+    display: block;
+    position: relative;
+    top: 0.5em;
+    font-size: 4em;
+    clip-path: inset(0px 0px 0.6em 0px);
+    font-weight: 600;
+}
+
+.section-title-2 {
+    display: block;
+    position: relative;
+    top: -0.6em;
+    font-size: 4em;
+    clip-path: inset(0.7em 0px 0px 0px);
+    font-weight: 600;
+}
+
+.content {
+    position: absolute;
+    width: 50em;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-content {
+    width: 50em;
+    font-size: 1em;
+    text-align: left;
+}
+
+.upside-down {
+    position: absolute;
+    font-size: 1em;
+    width: 50em;
+    transform: rotate(180deg) translate(0px, -0.09em);
+    -webkit-transform: rotate(180deg) translate(0px, -0.09em);
+    -moz-transform: rotate(180deg) translate(0px, -0.09em);
+    -ms-transform: rotate(180deg) translate(0px, -0.09em);
+    -o-transform: rotate(180deg) translate(0px, -0.09em);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    text-align: left;
+}
+
+#sepline {
+    position: absolute;
+    width: 0.3em;
+    height: 100%;
+    right: 28%;
+    top: 0px;
+    background: black;
+}
