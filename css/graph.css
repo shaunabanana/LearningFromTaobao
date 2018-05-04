@@ -1,0 +1,17 @@
+#tooltip {
+    opacity: 0;
+    left: 0px;
+    top: 0px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1em;
+    background: white;
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+    border: 0.1em solid #444;
+    border-radius: 0.2em;
+    vertical-align: middle;
+}
