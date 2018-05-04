@@ -1,4 +1,4 @@
-function StartGraph() {
+StartGraph = function () {
     var width = window.innerWidth,
         height = window.innerHeight,
         padding = 3, // separation between same-color nodes
@@ -34,7 +34,7 @@ function StartGraph() {
             .on("tick", tick)
             .start();
 
-        svg = d3.select("body").append("svg")
+        svg = d3.select("#section10").append("svg")
             .attr("width", width)
             .attr("height", height);
 

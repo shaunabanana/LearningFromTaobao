@@ -19,3 +19,14 @@ body{
     border-radius: 0.2em;
     vertical-align: middle;
 }
+
+.section-title {
+    display: block;
+    font-size: 28pt;
+}
+
+.text-content {
+    position: relative;
+    left: 3em;
+    width: 50em;
+}
