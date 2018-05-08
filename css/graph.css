@@ -15,3 +15,18 @@
     border-radius: 0.2em;
     vertical-align: middle;
 }
+
+#svgcanvas {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    pointer-events: none;
+}
+
+text {
+    pointer-events: auto;
+}
+
+.test {
+    pointer-events: auto;
+}

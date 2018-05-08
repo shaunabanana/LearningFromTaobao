@@ -16,12 +16,17 @@
 
 .clip-top {
     top: 0.5em;
-    clip-path: inset(0px 0px 0.6em 0px);
+    clip-path: inset(0px 0px 0.5em 0px);
 }
 
 .clip-bottom {
     top: -0.5em;
-    clip-path: inset(0.7em 0px 0px 0px);
+    clip-path: inset(0.65em 0px 0px 0px);
+}
+
+.footnote {
+    pointer-events: auto;
+    color: #ee991f;
 }
 
 .content {
@@ -31,6 +36,7 @@
     top: 50%;
     left: 10%;
     transform: translate(0%, -50%);
+    background: white;
 }
 
 .text-content-0 {
@@ -76,7 +82,7 @@
     position: absolute;
     width: 10em;
     height: 100%;
-    right: 33%;
+    right: 44%;
     top: 0px;
 }
 

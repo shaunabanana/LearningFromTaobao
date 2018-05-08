@@ -8,3 +8,27 @@ body{
     -ms-user-select: none;
     user-select: none;
 }
+
+.title {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.title-down-reverse {
+    transform: rotate(180deg) translate(0px, -0.36em);
+    -webkit-transform: rotate(180deg) translate(0px, -0.36em);
+    -moz-transform: rotate(180deg) translate(0px, -0.36em);
+    -ms-transform: rotate(180deg) translate(0px, -0.36em);
+    -o-transform: rotate(180deg) translate(0px, -0.36em);
+}
+
+.title-up-reverse {
+    transform: rotate(180deg) translate(0px, 0.2em);
+    -webkit-transform: rotate(180deg) translate(0px, 0.16em);
+    -moz-transform: rotate(180deg) translate(0px, 0.16em);
+    -ms-transform: rotate(180deg) translate(0px, 0.16em);
+    -o-transform: rotate(180deg) translate(0px, 0.16em);
+}

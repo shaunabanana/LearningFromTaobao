@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+cd /Users/sean/Desktop\ Workspaces/向淘宝学习/LearningFromTaobao
+python3 -m http.server 10000

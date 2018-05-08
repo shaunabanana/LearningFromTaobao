@@ -1,8 +1,8 @@
 function StartGraph () {
-    var width = window.innerWidth,
+    var width = window.innerWidth * 0.8,
         height = window.innerHeight,
-        padding = 3, // separation between same-color nodes
-        clusterPadding = 25, // separation between different-color nodes
+        padding = 20, // separation between same-color nodes
+        clusterPadding = 45, // separation between different-color nodes
         maxRadius = 12;
 
     var nClusters = 1;
@@ -19,7 +19,7 @@ function StartGraph () {
         entries.forEach(function (e) {
             e.x = Math.cos(e.cluster / nClusters * 2 * Math.PI) * 200 + width / 2 + Math.random();
             e.y = Math.sin(e.cluster / nClusters * 2 * Math.PI) * 200 + height / 2 + Math.random();
-            e.radius = Math.pow(1.4, -e.level) * 20;
+            e.radius = Math.pow(1.2, -e.level) * 20;
             if (e.level == 0) {
                 clusters[e.cluster] = e
             }
@@ -30,7 +30,7 @@ function StartGraph () {
             .nodes(entries)
             .size([width, height])
             .gravity(.05)
-            .charge(-20)
+            .charge(-40)
             .on("tick", tick)
             .start();
 
@@ -38,16 +38,19 @@ function StartGraph () {
             .attr("width", width)
             .attr("height", height);
 
-        entry = svg.selectAll("circle")
+        entry = svg.selectAll("text")
             .data(entries)
-            .enter().append("circle")
+            .enter().append("text")
             .style("fill", function(d) { return color(d.cluster); })
-            .attr("class", function(d) { return "cluster" + d.cluster; })
+            .attr("class", function(d) { return "test cluster" + d.cluster; })
             .attr("id", function(d) { return "entry" + d.index; })
+            .text(function(d) { return d.name; })
+            .style("font-size", function(d) { return d.radius; })
             .on("mouseover", function (d) {
-                d3.selectAll("circle").transition()
+                console.log("asdf");
+                d3.selectAll("text").transition()
                     .duration(200)
-                    .style("opacity", 0.4);
+                    .style("opacity", 0.2);
 
                 d3.selectAll(".cluster" + d.cluster).transition()
                     .duration(200)
@@ -69,26 +72,23 @@ function StartGraph () {
                 d3.select("#tooltip").transition()
                     .duration(500)
                     .style("opacity", 0);
-                d3.selectAll("circle").transition()
+                d3.selectAll("text").transition()
                     .duration(500)
-                    .style("opacity", 1.0);
+                    .style("opacity", 0.7);
             })
             .call(force.drag);
 
         entry.transition()
             .duration(750)
             .delay(function(d, i) { return i * 5; })
-            .attrTween("r", function(d) {
-                var i = d3.interpolate(0, d.radius);
-                return function(t) { return d.radius = i(t); };
-            });
+            .style("font-size", function(d) { return d.radius } );
 
         function tick(e) {
             entry
                 .each(cluster(10 * e.alpha * e.alpha))
                 .each(collide(.5))
-                .attr("cx", function(d) { return d.x; })
-                .attr("cy", function(d) { return d.y; });
+                .attr("x", function(d) { return d.x; })
+                .attr("y", function(d) { return d.y; });
         }
 
         // Move d to be adjacent to the cluster node.
