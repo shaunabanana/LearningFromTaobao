@@ -1,9 +1,5 @@
 #!/bin/zsh
 
-SCRIPT=$(readlink -f "$0")
-SCRIPTPATH=$(dirname "$SCRIPT")
+cd "`python -c "import os; print(os.path.realpath('$1'))"`"
 
-echo $SCRIPTPATH
-
-cd $SCRIPTPATH
 python3 -m http.server 10000

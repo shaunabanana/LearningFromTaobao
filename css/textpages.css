@@ -36,7 +36,6 @@
     top: 50%;
     left: 10%;
     transform: translate(0%, -50%);
-    background: white;
 }
 
 .text-content-0 {
@@ -101,7 +100,29 @@
     position: absolute;
     top: 0px;
     left: 2em;
-    right: 10em;
+    right: 0em;
     bottom: 0em;
     pointer-events: none;
+}
+
+.side-panel-overlay {
+    position: absolute;
+    right: 5em;
+    top: 0px;
+    width: 40%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 30%);
+}
+
+.side-panel {
+    position: absolute;
+    right: 5em;
+    top: 0px;
+    width: 40%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    background: red;
 }
