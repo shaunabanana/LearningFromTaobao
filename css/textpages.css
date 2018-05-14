@@ -125,16 +125,17 @@
 .quote {
     position: absolute;
     top: 50%;
-    left: 10em;
-    width: 15em;
+    left: 1em;
+    width: 20em;
     color: grey;
     transform: translateY(-50%);
     font-size: 1em;
 }
-/*
+
 .quote-start {
     position: absolute;
-    left: 7em;
+    left: -0.5em;
+    top: 40%;
     color: grey;
     font-size: 5em;
 }
@@ -145,4 +146,3 @@
     color: grey;
     font-size: 5em;
 }
-*/
