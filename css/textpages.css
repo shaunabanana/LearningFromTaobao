@@ -31,7 +31,7 @@
 
 .content {
     position: absolute;
-    width: 50em;
+    width: 40em;
     text-align: left;
     top: 50%;
     left: 10%;
@@ -39,7 +39,6 @@
 }
 
 .text-content-0 {
-    width: 50em;
     font-size: 1em;
     text-align: left;
 }
@@ -47,7 +46,6 @@
 .upside-down-0 {
     position: absolute;
     font-size: 1em;
-    width: 50em;
     transform: rotate(180deg) translate(0px, -0.09em);
     -webkit-transform: rotate(180deg) translate(0px, -0.09em);
     -moz-transform: rotate(180deg) translate(0px, -0.09em);
@@ -58,7 +56,6 @@
 }
 
 .text-content-1 {
-    width: 50em;
     font-size: 1em;
     text-align: left;
 }
@@ -66,7 +63,6 @@
 .upside-down-1 {
     position: absolute;
     font-size: 1em;
-    width: 50em;
     transform: rotate(180deg) translate(0px, -0.09em);
     -webkit-transform: rotate(180deg) translate(0px, -0.09em);
     -moz-transform: rotate(180deg) translate(0px, -0.09em);
@@ -124,5 +120,29 @@
     height: 100%;
     pointer-events: none;
     z-index: -2;
-    background: red;
 }
+
+.quote {
+    position: absolute;
+    top: 50%;
+    left: 10em;
+    width: 15em;
+    color: grey;
+    transform: translateY(-50%);
+    font-size: 1em;
+}
+/*
+.quote-start {
+    position: absolute;
+    left: 7em;
+    color: grey;
+    font-size: 5em;
+}
+
+.quote-end {
+    position: absolute;
+    left: 25.5em;
+    color: grey;
+    font-size: 5em;
+}
+*/
