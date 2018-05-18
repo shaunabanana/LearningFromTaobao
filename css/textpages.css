@@ -132,17 +132,12 @@
     font-size: 1em;
 }
 
-.quote-start {
+.image-quote {
     position: absolute;
-    left: -0.5em;
-    top: 40%;
+    top: 50%;
+    left: 0em;
+    width: 40em;
     color: grey;
-    font-size: 5em;
-}
-
-.quote-end {
-    position: absolute;
-    left: 25.5em;
-    color: grey;
-    font-size: 5em;
+    transform: translateY(-50%);
+    font-size: 1em;
 }

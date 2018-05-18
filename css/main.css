@@ -32,3 +32,11 @@ body{
     -ms-transform: rotate(180deg) translate(0px, 0.16em);
     -o-transform: rotate(180deg) translate(0px, 0.16em);
 }
+
+#usage {
+    position: fixed;
+    left: 50.7%;
+    top: 60%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}

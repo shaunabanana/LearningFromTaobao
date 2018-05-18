@@ -1,8 +1,8 @@
 function StartGraph () {
-    var width = window.innerWidth * 0.8,
+    var width = window.innerWidth,
         height = window.innerHeight,
         padding = 20, // separation between same-color nodes
-        clusterPadding = 45, // separation between different-color nodes
+        clusterPadding = 80, // separation between different-color nodes
         maxRadius = 12;
 
     var nClusters = 1;
@@ -19,7 +19,7 @@ function StartGraph () {
         entries.forEach(function (e) {
             e.x = Math.cos(e.cluster / nClusters * 2 * Math.PI) * 200 + width / 2 + Math.random();
             e.y = Math.sin(e.cluster / nClusters * 2 * Math.PI) * 200 + height / 2 + Math.random();
-            e.radius = Math.pow(1.2, -e.level) * 20;
+            e.radius = Math.pow(1.2, -e.level) * 25;
             if (e.level == 0) {
                 clusters[e.cluster] = e
             }
@@ -41,16 +41,15 @@ function StartGraph () {
         entry = svg.selectAll("text")
             .data(entries)
             .enter().append("text")
-            .style("fill", function(d) { return color(d.cluster); })
+            //.style("fill", function(d) { return color(d.cluster); })
             .attr("class", function(d) { return "test cluster" + d.cluster; })
             .attr("id", function(d) { return "entry" + d.index; })
             .text(function(d) { return d.name; })
             .style("font-size", function(d) { return d.radius; })
             .on("mouseover", function (d) {
-                console.log("asdf");
                 d3.selectAll("text").transition()
                     .duration(200)
-                    .style("opacity", 0.2);
+                    .style("opacity", 0.1);
 
                 d3.selectAll(".cluster" + d.cluster).transition()
                     .duration(200)
@@ -74,9 +73,12 @@ function StartGraph () {
                     .style("opacity", 0);
                 d3.selectAll("text").transition()
                     .duration(500)
-                    .style("opacity", 0.7);
+                    .style("opacity", 0.1);
             })
             .call(force.drag);
+        d3.selectAll("text").transition()
+            .duration(500)
+            .style("opacity", 0.1);
 
         entry.transition()
             .duration(750)
